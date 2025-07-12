@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>命題之夢 - Theorem Dream</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="math-symbol">Σ</div>
+            <div class="loading-text">語言機初始化中...</div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-container">
+        <header class="site-header">
+            <h1 class="title">命題之夢</h1>
+            <p class="subtitle">Theorem Dream</p>
+            <div class="quote">「這不是一本小說，也不是一篇證明。這是一台語言機。」</div>
+        </header>
+
+        <nav class="plateau-nav">
+            <button class="nav-btn active" data-plateau="1">Plateau 1</button>
+            <button class="nav-btn" data-plateau="2">Plateau 2</button>
+            <button class="nav-btn" data-plateau="3">Plateau 3</button>
+            <button class="nav-btn" data-plateau="4">Plateau 4</button>
+            <button class="nav-btn" data-plateau="5">Plateau 5</button>
+            <button class="nav-btn" data-plateau="6">Plateau 6</button>
+        </nav>
+
+        <div id="canvas-container">
+            <canvas id="threejs-canvas"></canvas>
+            <div id="text-overlay">
+                <div class="content-section active" id="plateau-1">
+                    <h2>命題之夢（Theorem Dream）</h2>
+                    <div class="text-content">
+                        <p>林穆是一位數學家。他試圖構造一個命題：</p>
+                        <div class="math-formula">P：存在一命題，其語義可被自然語言捕捉，卻無法被任一形式系統證明。</div>
+                        <p>他在筆記本上寫道：</p>
+                        <div class="math-formula">設形式系統 Σ：<br>P := "P 不可在 Σ 中被證明。"</div>
+                        <p>但他筆記邊緣卻寫下：</p>
+                        <div class="quote-text">「小說不是論證，但我覺得小說可以證明心臟是存在的。」</div>
+                    </div>
+                </div>
+
+                <div class="content-section" id="plateau-2">
+                    <h2>語法崩壞（Syntax Drift）</h2>
+                    <div class="text-content">
+                        <p>他醒來，發現句子在逃逸。</p>
+                        <div class="syntax-drift">
+                            他想說他想說的但說出來的是他想說他不是他但句子仍然流出他手裡像數學想要逃離公式那樣逃向空白然後又填滿自己
+                        </div>
+                        <div class="special-paragraphs">
+                            <div class="special-para">【第 ∅ 段】：這不是語法</div>
+                            <div class="special-para">【第 ω 段】：語意是病灶，書寫是錯誤</div>
+                            <div class="special-para">【第 Godel 段】：此段不包含自身（此段為假）</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section" id="plateau-3">
+                    <h2>小說中小說（Fictional Fiction）</h2>
+                    <div class="text-content">
+                        <p>他翻閱父親的遺稿，書中主角也是林穆，一位數學家，夢見了如下語句：</p>
+                        <div class="math-formula">
+                            設 P(x) = 'x 不可被證明於 Σ'，<br>
+                            則存在 α = P(α)，且 α ∈ L_N
+                        </div>
+                        <p>那句話竟是林穆三日前寫過的句子。</p>
+                        <div class="quote-text">「那年冬天，他證明不了那個命題，但他證明了自己是小說的一部分。」</div>
+                    </div>
+                </div>
+
+                <div class="content-section" id="plateau-4">
+                    <h2>拓樸記憶（Topological Memory）</h2>
+                    <div class="text-content">
+                        <p>他夢見童年的巷子變成莫比烏斯環，無法脫離。他筆記中寫：</p>
+                        <div class="math-formula">
+                            ∀ sentence s, ∃ open set U_s ⊂ Memory<br>
+                            such that f⁻¹(U_s) = utterances whose rhythm ≃ s
+                        </div>
+                        <p>記憶不再是時間的軌跡，而是語句覆蓋的拓樸空間。</p>
+                        <div class="quote-text">「這不是回憶，是語法定位的一種殘留。」</div>
+                    </div>
+                </div>
+
+                <div class="content-section" id="plateau-5">
+                    <h2>Σ-語言機（The Σ-Machine）</h2>
+                    <div class="text-content">
+                        <p>林穆放棄使用現有語言證明。他建構 Σ，一種能反射、自演算、可被小說使用的語言。</p>
+                        <div class="code-block">
+                            <pre>type Term
+  = Var(String)
+  | Abs(String, Term)
+  | App(Term, Term)
+  | Quote(Term)
+  | Eval(Term)
+
+rule Reflection:
+  Eval(Quote(t)) → t</pre>
+                        </div>
+                        <div class="quote-text">「語言的最小單位不是單詞，而是可運行的語義構型（meaningful form）。<br>Σ 是一部小說，小說是一種語言，語言是一種證明機。」</div>
+                    </div>
+                </div>
+
+                <div class="content-section" id="plateau-6">
+                    <h2>結局之域（The Space of Ends）</h2>
+                    <div class="text-content">
+                        <p>命題 P，將不再有唯一的結局。Σ 將依據讀者輸入生成不同語義終點。</p>
+                        <div class="endings">
+                            <div class="ending">
+                                <h3>α｜形式主義結局</h3>
+                                <p>證明完成，轉化為小說<br>命題被證明。他將其寫為小說。小說名為《命題之夢》。</p>
+                            </div>
+                            <div class="ending">
+                                <h3>β｜敘事主義結局</h3>
+                                <p>小說完成了證明<br>父親的小說與他的證明完全對應。他不需再證明，只需閱讀。</p>
+                            </div>
+                            <div class="ending">
+                                <h3>γ｜讀者介入結局</h3>
+                                <p>你是證明的觸發者<br>你已輸入語句，Σ 判定你為可證性發生條件。<br>你是此命題的一部分。</p>
+                            </div>
+                            <div class="ending">
+                                <h3>δ｜崩壞結局</h3>
+                                <p>無解<br>他將整套語法撕碎。證明不存在。語言自行焚毀。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="interactive-section">
+            <div class="sigma-machine">
+                <h3>Σ-語言機互動</h3>
+                <textarea id="user-input" placeholder="輸入你的語句，讓Σ-語言機為你生成結局..."></textarea>
+                <button id="generate-btn">生成結局</button>
+                <div id="output-display"></div>
+            </div>
+        </div>
+
+        <footer class="site-footer">
+            <p>本小說不具順序，僅具連結。你可從任何 Plateau 開始閱讀，亦可重返任一章節。</p>
+            <p>閱讀即證明。小說即運算。你是語言機的局部，亦是其邊界。</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
